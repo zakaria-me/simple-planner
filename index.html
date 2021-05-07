@@ -22,7 +22,7 @@
 				</tr>
 				<tr>
 					<td>Priorite Une</td>
-					<td></td>
+					<td id="cell"></td>
 					<td></td>
 					<td></td>
 					<td></td>
@@ -53,53 +53,32 @@
 			</tbody>
 		</table>
 
-		<button id="addParagraphs" onclick="addParagraphs()">
-			Ajouter des paragraphes
-		</button>
+		<button id="addParagraphs">Ajouter des paragraphes</button>
 		<button id="removeParagraphs">Enlever des paragraphes</button>
 		<script>
+			const button = document.getElementById('addParagraphs');
+			const button2 = document.getElementById('removeParagraphs');
+			const cell = document.getElementById('cell');
 			function addParagraphs() {
-				let table_taches = document.getElementById('table_taches');
-				let squareOfTable = table_taches.getElementsByTagName('td');
-				for (let element of squareOfTable) {
-					element.addEventListener('click', addParagraphsEvent(element));
-				}
-			}
-			function addParagraphsEvent(element) {
 				let paragraph = document.createElement('p');
 				paragraph.innerHTML = 'Hello World';
-				paragraph.style.border = '1px solid';
-				element.appendChild(paragraph);
+				this.appendChild(paragraph);
 			}
 			function removeParagraphs() {
-				let paragraphOfTable = table_taches.getElementsByTagName('p');
-				for (let element of paragraphOfTable) {
-					element.removeEventListener;
-					element.addEventListener('click', function (e) {
-						//	e.remove();
-					});
+				this.remove();
+			}
+			function addEvents() {
+				cell.addEventListener('click', addParagraphs);
+			}
+			function removeEvents() {
+				cell.removeEventListener('click', addParagraphs);
+				let paragraphs = cell.getElementsByTagName('p');
+				for (let i = 0; i < paragraphs.length; ++i) {
+					paragraphs[i].addEventListener('click', removeParagraphs);
 				}
 			}
-			/*
-				let table_taches = document.getElementById('table_taches');
-				let squareOfTable = table_taches.getElementsByTagName('td');
-				for (let element of squareOfTable) {
-					element.addEventListener('click', function () {
-						let paragraph = document.createElement('p');
-						paragraph.innerHTML = 'Hello World';
-						paragraph.setAttribute('onclick', 'this.remove()');
-						paragraph.style.border = '1px solid';
-						this.appendChild(paragraph);
-					});
-				} /*
-				setInterval(function () {
-					let paragraphOfTable = table_taches.getElementsByTagName('p');
-					for (let element of paragraphOfTable) {
-						element.addEventListener('click', function (e) {
-							e.remove();
-						});
-					}
-				}, 20);*/
+			button.addEventListener('click', addEvents);
+			button2.addEventListener('click', removeEvents);
 		</script>
 	</body>
 </html>
