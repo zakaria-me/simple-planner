@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Web Planner</title>
+	</head>
+	<body>
+		<h2>Taches</h2>
+		<table border="1px solid" id="table_taches">
+			<tbody>
+				<tr>
+					<th>Jour</th>
+					<th>Lundi</th>
+					<th>Mardi</th>
+					<th>Mercredi</th>
+					<th>Jeudi</th>
+					<th>Vendredi</th>
+					<th>Samedi</th>
+					<th>Dimanche</th>
+				</tr>
+				<tr>
+					<td>Priorite Une</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Priorite Deux</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Priorite Trois</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<button id="addParagraphs" onclick="addParagraphs()">
+			Ajouter des paragraphes
+		</button>
+		<button id="removeParagraphs">Enlever des paragraphes</button>
+		<script>
+			function addParagraphs() {
+				let table_taches = document.getElementById('table_taches');
+				let squareOfTable = table_taches.getElementsByTagName('td');
+				for (let element of squareOfTable) {
+					element.addEventListener('click', addParagraphsEvent(element));
+				}
+			}
+			function addParagraphsEvent(element) {
+				let paragraph = document.createElement('p');
+				paragraph.innerHTML = 'Hello World';
+				paragraph.style.border = '1px solid';
+				element.appendChild(paragraph);
+			}
+			function removeParagraphs() {
+				let paragraphOfTable = table_taches.getElementsByTagName('p');
+				for (let element of paragraphOfTable) {
+					element.removeEventListener;
+					element.addEventListener('click', function (e) {
+						//	e.remove();
+					});
+				}
+			}
+			/*
+				let table_taches = document.getElementById('table_taches');
+				let squareOfTable = table_taches.getElementsByTagName('td');
+				for (let element of squareOfTable) {
+					element.addEventListener('click', function () {
+						let paragraph = document.createElement('p');
+						paragraph.innerHTML = 'Hello World';
+						paragraph.setAttribute('onclick', 'this.remove()');
+						paragraph.style.border = '1px solid';
+						this.appendChild(paragraph);
+					});
+				} /*
+				setInterval(function () {
+					let paragraphOfTable = table_taches.getElementsByTagName('p');
+					for (let element of paragraphOfTable) {
+						element.addEventListener('click', function (e) {
+							e.remove();
+						});
+					}
+				}, 20);*/
+		</script>
+	</body>
+</html>
