@@ -1,0 +1,7 @@
+.paragraph-to-do {
+	text-decoration-line: none;
+}
+
+.paragraph-done {
+	text-decoration-line: line-through;
+}
