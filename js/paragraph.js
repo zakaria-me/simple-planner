@@ -11,3 +11,7 @@ function strikeThroughParagraphs() {
 		this.className = 'paragraph-done';
 	}
 }
+
+function removeParagraphs(e) {
+	this.remove();
+}
