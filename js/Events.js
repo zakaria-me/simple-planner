@@ -1,6 +1,6 @@
 // Constants for elements
 const button = document.getElementById('addParagraphs');
-const button2 = document.getElementById('removeParagraphs');
+const button2 = document.getElementById('strikeThroughParagraphs');
 const tableOfTache = document.getElementById('table_taches');
 const cellsOfTableTache = tableOfTache.getElementsByTagName('td');
 /*
@@ -9,7 +9,7 @@ function addParagraphs() {
 	paragraph.innerHTML = 'Hello World';
 	this.appendChild(paragraph);
 }
-function removeParagraphs() {
+function strikeThroughParagraphs() {
 	this.remove();
 }*/
 // Add Events
@@ -23,7 +23,7 @@ function removeEvents() {
 		cell.removeEventListener('click', addParagraphs);
 		let paragraphs = cell.getElementsByTagName('p');
 		for (let i = 0; i < paragraphs.length; ++i) {
-			paragraphs[i].addEventListener('click', removeParagraphs);
+			paragraphs[i].addEventListener('click', strikeThroughParagraphs);
 		}
 	}
 }

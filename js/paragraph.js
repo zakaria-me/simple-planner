@@ -4,7 +4,7 @@ function addParagraphs() {
 	paragraph.innerHTML = 'Hello World';
 	this.appendChild(paragraph);
 }
-function removeParagraphs() {
+function strikeThroughParagraphs() {
 	if (this.className == 'paragraph-done') {
 		this.className = 'paragraph-to-do';
 	} else if (this.className == 'paragraph-to-do') {
