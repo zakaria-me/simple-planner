@@ -1,7 +1,6 @@
 // Constants for elements
 const buttonAddParagraphs = document.getElementById('addParagraphs');
 const buttonTacheTerminee = document.getElementById('strikeThroughParagraphs');
-const buttonRemoveParagraphs = document.getElementById('removeParagraphs');
 const tableOfTache = document.getElementById('table_taches');
 const cellsOfTableTache = tableOfTache.getElementsByTagName('td');
 // Add Events
