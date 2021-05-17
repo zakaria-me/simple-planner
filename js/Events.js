@@ -1,31 +1,25 @@
 // Constants for elements
-const button = document.getElementById('addParagraphs');
-const button2 = document.getElementById('removeParagraphs');
+const buttonAddParagraphs = document.getElementById('addParagraphs');
+const buttonTacheTerminee = document.getElementById('strikeThroughParagraphs');
+const buttonRemoveParagraphs = document.getElementById('removeParagraphs');
 const tableOfTache = document.getElementById('table_taches');
 const cellsOfTableTache = tableOfTache.getElementsByTagName('td');
-/*
-function addParagraphs() {
-	let paragraph = document.createElement('p');
-	paragraph.innerHTML = 'Hello World';
-	this.appendChild(paragraph);
-}
-function removeParagraphs() {
-	this.remove();
-}*/
 // Add Events
-function addEvents() {
+function addParagraphEvents() {
 	for (const cell of cellsOfTableTache) {
 		cell.addEventListener('click', addParagraphs);
+		//cell.removeEventListener('click', removeParagraphs);
 	}
 }
-function removeEvents() {
+function strikeThroughEvents() {
 	for (const cell of cellsOfTableTache) {
 		cell.removeEventListener('click', addParagraphs);
+		//cell.removeEventListener('click', removeParagraphs);
 		let paragraphs = cell.getElementsByTagName('p');
 		for (let i = 0; i < paragraphs.length; ++i) {
-			paragraphs[i].addEventListener('click', removeParagraphs);
+			paragraphs[i].addEventListener('click', strikeThroughParagraphs);
 		}
 	}
 }
-button.addEventListener('click', addEvents);
-button2.addEventListener('click', removeEvents);
+buttonAddParagraphs.addEventListener('click', addParagraphEvents);
+buttonTacheTerminee.addEventListener('click', strikeThroughEvents);
