@@ -4,7 +4,7 @@ function addParagraphs() {
 	let btn = document.createElement('button');
 	let btnEdit = document.createElement('button');
 	btnEdit.type = 'button';
-	btnEdit.innerText - 'Modifier';
+	btnEdit.innerText = 'Modifier';
 	btn.type = 'button';
 	btn.innerText = 'Supprimer';
 	paragraph.className = 'paragraph-to-do';
@@ -12,9 +12,14 @@ function addParagraphs() {
 	if (paragraph.innerText != '') {
 		div.appendChild(paragraph);
 		div.appendChild(btn);
+		div.appendChild(btnEdit);
 		this.appendChild(div);
 		btn.addEventListener('click', function () {
 			this.parentElement.remove();
+		});
+		btnEdit.addEventListener('click', function () {
+			let pOfDiv = this.parentElement.getElementsByTagName('p');
+			pOfDiv[0].innerText = prompt('Entrez le nouveau texte:');
 		});
 	}
 }
